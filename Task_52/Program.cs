@@ -41,27 +41,25 @@ while (run)
             Console.WriteLine();
         }
     }
-    int GetAvg(int[,] array)
+    void GetAvg(int[,] array)
     {
-        int sum = 0;
-        int i = 0;
-        int j = 0;
-        while (i < array.GetLength(0) - 1
-               || j < array.GetLength(1) - 1)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            sum += array[i, j];
-            i++;
-            j++;
+            int sum = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                sum += array[i, j];
+            }
+            Console.Write($"{Math.Round((float)sum / array.GetLength(0), 1)}; ");
         }
-        int avg = sum / array.GetLength(0);
-        return avg;
+
     }
 
     int[,] arr = GetArray(lines, columns);
     PrintArray(arr);
-    int sum = GetAvg(arr);
     Console.WriteLine();
-    Console.WriteLine($"Сумма элементов равна {sum}");
+    GetAvg(arr);
+    Console.WriteLine();
     Console.WriteLine("Попробуем ещё раз? y/n");
     run = Console.ReadKey().Key == ConsoleKey.Y;
 }
