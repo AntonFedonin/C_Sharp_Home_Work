@@ -58,6 +58,7 @@ while (run)
     int[,] arr = GetArray(lines, columns);
     PrintArray(arr);
     Console.WriteLine();
+    Console.WriteLine("Среднее арифметическое каждого столбца: ");
     GetAvg(arr);
     Console.WriteLine();
     Console.WriteLine("Попробуем ещё раз? y/n");
