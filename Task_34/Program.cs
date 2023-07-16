@@ -10,6 +10,8 @@ while (run)
     Console.WriteLine("Укажите размер массива");
     int size = int.Parse(Console.ReadLine());
     int[] array = new int[size];
+    int[] revArray = new int[size];
+
     int count = 0;
     var newRnd = new Random();
     for (int i = 0; i < array.Length; i++)
@@ -19,13 +21,15 @@ while (run)
         Console.Write(array[i] + " ");
     }
     Console.WriteLine();
-    for (int i = 0; i < array.Length; i++)
+    for (int i = size - 1; i >= 0; i--)
     {
-        if (array[i] % 2 == 0)
-            count += 1;
+        revArray[count] = array[i];
+        Console.Write(revArray[count] + " ");
+        count++;
     }
-    Console.WriteLine(count);
 
+
+    Console.WriteLine();
     Console.WriteLine("Попробуем ещё раз? y/n");
     run = Console.ReadKey().Key == ConsoleKey.Y;
 }
